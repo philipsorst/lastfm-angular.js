@@ -1,30 +1,39 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html lang="en" ng-app="myApp">
 <head>
-  <meta charset="utf-8">
-  <title>My AngularJS App</title>
-  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/app.css"/>
+<meta charset="utf-8">
+<title>My AngularJS App</title>
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/app.css" />
 </head>
 <body>
-  <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-    <li><a href="#/view2">view2</a></li>
-  </ul>
 
-  <div ng-view></div>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="#">lastfm-angular</a>
+				<ul class="nav">
+					<li><a href="#">User</a></li>
+					<li><a href="#/view1">view1</a></li>
+					<li><a href="#/view2">view2</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<div ng-view class="container"></div>
 
-  <div>Angular seed app: v<span app-version></span></div>
+	<footer class="container">
+		Angular seed app: v<span app-version></span>
+	</footer>
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
-  -->
-  <script src="lib/angular/angular.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/services.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/filters.js"></script>
-  <script src="js/directives.js"></script>
-  <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+
+	<script src="lib/angular/angular.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/services.js"></script>
+	<script src="js/controllers.js"></script>
+	<script src="js/filters.js"></script>
+	<script src="js/directives.js"></script>
+	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
 </body>
 </html>
