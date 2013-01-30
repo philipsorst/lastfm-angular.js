@@ -15,3 +15,7 @@ function SideBarController($scope, PackageService, $route, $routeParams) {
 	};
 	$scope.params = $routeParams;
 }
+
+function RouteController($scope, $routeParams) {
+	$scope.params = $routeParams;
+}

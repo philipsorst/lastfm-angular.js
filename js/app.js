@@ -15,6 +15,6 @@ angular.module('lastfmApp', [ 'lastfmApp.filters', 'lastfmApp.services', 'lastfm
 			});
 			
 			$routeProvider.otherwise({
-				redirectTo : '/artist'
+				redirectTo : '/user/getInfo'
 			});
 		} ]);
