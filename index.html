@@ -12,29 +12,39 @@
 		<div class="navbar-inner">
 			<div class="container">
 				<a class="brand" href="#">lastfm-angular</a>
-				<ul class="nav">
-					<li><a href="#">User</a></li>
-					<li><a href="#/view1">view1</a></li>
-					<li><a href="#/view2">view2</a></li>
+				<ul class="nav" ng-controller="TopBarController">
+					<li ng-repeat="pkg in packages" ng-class="{true:'active',false:''}[pkg == params.pkg]">
+						<a href="#/{{pkg}}">{{pkg}}</a>
+					</li>
 				</ul>
 			</div>
 		</div>
 	</div>
 	
-	<div ng-view class="container"></div>
-
-	<footer class="container">
-		Angular seed app: v<span app-version></span>
-	</footer>
-
-
+	<div class="container">
+		<div class="row">
+			<div class="span2">
+				<ul class="nav nav-list" ng-controller="SideBarController">
+					<li>{{methods}}</li>
+  					<li ng-repeat="mthd in methods()" ng-class="{true:'active',false:''}[mthd == params.mthd]">
+  						<a href="#/{{params.pkg}}/{{mthd}}">{{mthd}}</a>
+  					</li>
+				</ul>
+			</div>
+			<!-- <div ng-view class="span10">
+			</div> -->
+		</div>
+	</div>
+	
+	
+	
+	<script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
 	<script src="lib/angular/angular.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/services.js"></script>
 	<script src="js/controllers.js"></script>
 	<script src="js/filters.js"></script>
 	<script src="js/directives.js"></script>
-	<script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
-	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
 </body>
 </html>

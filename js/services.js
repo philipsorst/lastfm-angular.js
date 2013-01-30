@@ -2,8 +2,17 @@
 
 /* Services */
 
+var services = angular.module('lastfmApp.services', []);
 
-// Demonstrate how to register services
-// In this case it is a simple value service.
-angular.module('lastfmApp.services', []).
-  value('version', '0.1');
+services.value('PackageService', {
+	        "user":  [
+	                  "getInfo",
+	                  "getFriends"
+	                  ],
+	        "artist": [
+	                   "getInfo"
+	                  ],
+	        "tag": [
+	                "getInfo"
+	                ]
+});
