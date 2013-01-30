@@ -5,16 +5,16 @@ angular.module('lastfmApp', [ 'lastfmApp.filters', 'lastfmApp.services', 'lastfm
 		[ '$routeProvider', function($routeProvider) {
 			
 			$routeProvider.when('/:pkg', {
-				//templateUrl : 'partials/partial1.html',
-				//controller : MyCtrl1
+				templateUrl : 'partials/include.html',
+				controller : IndexController
 			});
 			
 			$routeProvider.when('/:pkg/:mthd', {
-				//templateUrl : 'partials/partial1.html',
-				//controller : MyCtrl1
+				templateUrl : 'partials/include.html',
+				controller: MethodController
 			});
 			
 			$routeProvider.otherwise({
-				redirectTo : '/user/getInfo'
+				redirectTo : 'user/'
 			});
 		} ]);
