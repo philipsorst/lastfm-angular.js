@@ -26,8 +26,8 @@
 			<div class="span2">
 				<ul class="nav nav-list" ng-controller="SideBarController">
 					<li>{{methods}}</li>
-  					<li ng-repeat="mthd in methods()" ng-class="{true:'active',false:''}[mthd == params.mthd]">
-  						<a href="#/{{params.pkg}}/{{mthd}}">{{mthd}}</a>
+  					<li ng-repeat="mthd in methods()" ng-class="{true:'active',false:''}[mthd.name == params.mthd]">
+  						<a href="#/{{params.pkg}}/{{mthd.name}}">{{mthd.name}}</a>
   					</li>
 				</ul>
 			</div>

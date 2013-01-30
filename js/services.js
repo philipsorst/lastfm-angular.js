@@ -5,14 +5,22 @@
 var services = angular.module('lastfmApp.services', []);
 
 services.value('PackageService', {
-	        "user":  [
-	                  "getInfo",
-	                  "getFriends"
-	                  ],
-	        "artist": [
-	                   "getInfo"
-	                  ],
-	        "tag": [
-	                "getInfo"
-	                ]
+    "user":  [
+        {
+            "name": "getInfo"
+        },
+	    {
+        	"name": "getFriends"
+	    }
+    ],
+	"artist": [
+        {
+            "name": "getInfo"
+        }
+    ],
+	"tag": [
+        {
+            "name": "getInfo"
+        }
+    ]
 });
