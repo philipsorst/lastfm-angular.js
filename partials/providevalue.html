@@ -1,0 +1,7 @@
+<div class="page-header">
+	<h2>{{params.pkg}}</h2>
+</div>
+
+<form class="form-inline" ng-submit="showMethod(pkg().initialMethod, pkg().requiredParam, paramValue)">
+	<input type="text" placeholder="{{pkg().requiredParam}}" ng-model="paramValue" /><input type="submit" class="btn" value="Go" />
+</form>

@@ -2,11 +2,15 @@
 	<h2>User.getFriends</h2>
 </div>
 
+<div ng-controller="PaginationController">
+	<ng-include src="'partials/pagination.html'"></ng-include>
+</div>
+
 <div>
 	<ul class="thumbnails">
-		<li ng-repeat="user in data.friends.user" class="span2">
+		<li ng-repeat="user in data.friends.user" class="span1">
 			<a ng-href="#/user/getInfo?user={{user.name}}" class="thumbnail">
-				<img ng-src="{{image(user, 'large')}}" />
+				<img ng-src="{{image(user, 'medium')}}" />
 			</a>
 		</li>
 	</ul>

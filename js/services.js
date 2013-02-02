@@ -42,7 +42,8 @@ services.value('PackageService', {
     	        "name": "getFriends"
     	    }
         ],
-        "requiredParam": "user"
+        "requiredParam": "user",
+        "initialMethod": "getInfo"
     },
 	"artist": {
 		"methods": [
@@ -50,7 +51,8 @@ services.value('PackageService', {
                 "name": "getInfo"
             }
         ],
-        "requiredParam": "artist"
+        "requiredParam": "artist",
+        "initialMethod": "getInfo"
 	},
 	"tag": {
 		"methods": [
@@ -58,6 +60,7 @@ services.value('PackageService', {
                 "name": "getInfo"
             }
         ],
-        "requiredParam": "tag"
+        "requiredParam": "tag",
+        "initialMethod": "getInfo"
 	}
 });

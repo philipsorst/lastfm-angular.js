@@ -1,7 +1,5 @@
 'use strict';
 
-console.log(account.key);
-
 // Declare app level module which depends on filters, and services
 angular.module('lastfmApp', [ 'lastfmApp.filters', 'lastfmApp.services', 'lastfmApp.directives' ]).config(
 		[ '$routeProvider', function($routeProvider) {

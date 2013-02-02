@@ -2,12 +2,12 @@
 
 /* Controllers */
 
-function TopBarController($scope, PackageService, $route, $routeParams) {
+function TopBarController($scope, $route, $routeParams, PackageService) {
 	$scope.packages = Object.keys(PackageService);
 	$scope.params = $routeParams;
 }
 
-function SideBarController($scope, PackageService, $route, $routeParams) {
+function SideBarController($scope, $route, $routeParams, PackageService) {
 	
 	$scope.methods = function() {
 		if ($routeParams.pkg == undefined) {
@@ -44,29 +44,54 @@ function MethodController($scope, $routeParams, LastFm) {
 	};
 	
 	$scope.image = function(entity, size) {
+		
+		if (entity == undefined) {
+			return "";
+		}
+		
 		var src = null;
 		angular.forEach(entity.image, function(value) {
-			console.log(value.size, size);
 			if (value.size == size) {
 				src = value["#text"];
 			}
 		});
-		if (src != null) {
+		if (src != null && src != undefined && src != "") {
 			return src;
 		}
-		src = entity.image[0]["#text"];
-		if (src != null) {
-			return src;
+		
+		if (entity.image != undefined) {
+			src = entity.image[0]["#text"];
+			if (src != null && src != undefined && src != "") {
+				return src;
+			}
 		}
+		
+		if (size == "small") {
+			return "http://cdn.last.fm/flatness/catalogue/noimage/2/default_user_small.png";
+		} else if (size == "medium") {
+			return "http://cdn.last.fm/flatness/catalogue/noimage/2/default_user_medium.png";
+		} else if (size == "large") {
+			return "http://cdn.last.fm/flatness/catalogue/noimage/2/default_user_large.png";
+		} else if (size == "extralarge") {
+			return "http://cdn.last.fm/flatness/catalogue/noimage/2/default_user_mega.png";
+		}
+		
 	};
 }
 
-function IndexController($scope, $routeParams, $location) {
+function IndexController($scope, $routeParams, $location, PackageService) {
 	
 	$scope.params = $routeParams;
 	
+	$scope.pkg = function() {
+		if ($routeParams.pkg == undefined) {
+			return {};
+		}
+		return PackageService[$routeParams.pkg];
+	};
+	
 	$scope.includeUrl = function() {
-		return "partials/" + $scope.params.pkg + "/index.html";
+		return "partials/providevalue.html";
 	};
 	
 	$scope.showMethod = function(mthd, paramName, paramValue) {
@@ -76,4 +101,6 @@ function IndexController($scope, $routeParams, $location) {
 
 function PaginationController($scope, $routeParams) {
 	console.log($scope);
+	console.log("hier");
+	console.log($scope.$parent.data);
 }
