@@ -11,7 +11,7 @@ services.factory('LastFm', function($http) {
 			var lfmParams = {
 					"format": "json",
 					"method": routeParams.pkg + "." + routeParams.mthd,
-					"api_key": ""
+					"api_key": "d9fa7f023ea8b16fff768d48105aad58"
 				};
 			
 			for(var propt in routeParams){
@@ -33,22 +33,31 @@ services.factory('LastFm', function($http) {
 });
 
 services.value('PackageService', {
-    "user":  [
-        {
-            "name": "getInfo"
-        },
-	    {
-        	"name": "getFriends"
-	    }
-    ],
-	"artist": [
-        {
-            "name": "getInfo"
-        }
-    ],
-	"tag": [
-        {
-            "name": "getInfo"
-        }
-    ]
+    "user": { 
+    	"methods": [
+    	    {
+    	        "name": "getInfo",
+    	    },
+    	    {
+    	        "name": "getFriends"
+    	    }
+        ],
+        "requiredParam": "user"
+    },
+	"artist": {
+		"methods": [
+	        {
+                "name": "getInfo"
+            }
+        ],
+        "requiredParam": "artist"
+	},
+	"tag": {
+		"methods": [
+	        {
+                "name": "getInfo"
+            }
+        ],
+        "requiredParam": "tag"
+	}
 });

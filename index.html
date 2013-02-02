@@ -13,7 +13,7 @@
 			<div class="container">
 				<a class="brand" href="#">lastfm-angular</a>
 				<ul class="nav" ng-controller="TopBarController">
-					<li ng-repeat="pkg in packages" ng-class="{true:'active',false:''}[pkg == params.pkg]">
+					<li ng-repeat="pkg in packages" ng-class="{active: pkg == params.pkg}">
 						<a href="#/{{pkg}}">{{pkg}}</a>
 					</li>
 				</ul>
@@ -26,8 +26,8 @@
 			<div class="span2">
 				<ul class="nav nav-list" ng-controller="SideBarController">
 					<li>{{methods}}</li>
-  					<li ng-repeat="mthd in methods()" ng-class="{true:'active',false:''}[mthd.name == params.mthd]">
-  						<a href="#/{{params.pkg}}/{{mthd.name}}">{{mthd.name}}</a>
+  					<li ng-repeat="mthd in methods()" ng-class="{active: mthd.name == params.mthd}">
+  						<a href="#/{{params.pkg}}/{{mthd.name}}?{{requiredParamKey()}}={{requiredParamValue()}}">{{mthd.name}}</a>
   					</li>
 				</ul>
 			</div>

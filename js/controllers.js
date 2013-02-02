@@ -8,10 +8,23 @@ function TopBarController($scope, PackageService, $route, $routeParams) {
 }
 
 function SideBarController($scope, PackageService, $route, $routeParams) {
+	
 	$scope.methods = function() {
-		return PackageService[$routeParams.pkg];
+		if ($routeParams.pkg == undefined) {
+			return [];
+		}
+		return PackageService[$routeParams.pkg].methods;
 	};
+	
 	$scope.params = $routeParams;
+	
+	$scope.requiredParamKey = function() {
+		return PackageService[$routeParams.pkg].requiredParam;
+	};
+	
+	$scope.requiredParamValue = function() {
+		return $routeParams[PackageService[$routeParams.pkg].requiredParam];
+	};
 }
 
 function RouteController($scope, $routeParams) {
