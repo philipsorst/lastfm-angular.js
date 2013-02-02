@@ -42,6 +42,23 @@ function MethodController($scope, $routeParams, LastFm) {
 	$scope.includeUrl = function() {
 		return "partials/" + $scope.params.pkg + "/" + $scope.params.mthd + ".html";
 	};
+	
+	$scope.image = function(entity, size) {
+		var src = null;
+		angular.forEach(entity.image, function(value) {
+			console.log(value.size, size);
+			if (value.size == size) {
+				src = value["#text"];
+			}
+		});
+		if (src != null) {
+			return src;
+		}
+		src = entity.image[0]["#text"];
+		if (src != null) {
+			return src;
+		}
+	};
 }
 
 function IndexController($scope, $routeParams, $location) {
@@ -55,4 +72,8 @@ function IndexController($scope, $routeParams, $location) {
 	$scope.showMethod = function(mthd, paramName, paramValue) {
 		$location.url($scope.params.pkg + "/" + mthd + "?" + paramName + "=" +paramValue);
 	};
+}
+
+function PaginationController($scope, $routeParams) {
+	console.log($scope);
 }

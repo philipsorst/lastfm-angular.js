@@ -2,8 +2,12 @@
 	<h2>User.getFriends</h2>
 </div>
 
-<ul>
-	<li ng-repeat="friend in data.friends">
-		{{friend.name}}
-	</li>
-</ul>
+<div>
+	<ul class="thumbnails">
+		<li ng-repeat="user in data.friends.user" class="span2">
+			<a ng-href="#/user/getInfo?user={{user.name}}" class="thumbnail">
+				<img ng-src="{{image(user, 'large')}}" />
+			</a>
+		</li>
+	</ul>
+</div>

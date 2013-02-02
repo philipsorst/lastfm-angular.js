@@ -11,7 +11,7 @@ services.factory('LastFm', function($http) {
 			var lfmParams = {
 					"format": "json",
 					"method": routeParams.pkg + "." + routeParams.mthd,
-					"api_key": "d9fa7f023ea8b16fff768d48105aad58"
+					"api_key": account.key
 				};
 			
 			for(var propt in routeParams){
