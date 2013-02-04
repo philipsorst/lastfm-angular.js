@@ -55,6 +55,7 @@ function MethodController($scope, $routeParams, LastFm) {
 				src = value["#text"];
 			}
 		});
+		
 		if (src != null && src != undefined && src != "") {
 			return src;
 		}
@@ -75,11 +76,11 @@ function MethodController($scope, $routeParams, LastFm) {
 		} else if (size == "extralarge") {
 			return "http://cdn.last.fm/flatness/catalogue/noimage/2/default_user_mega.png";
 		}
-		
-		 $scope.setPage = function (pageNo) {
-			console.log(pageNo);
-		 };
-		
+	};
+	
+	$scope.onSelectPage = function(pageNo) {
+		console.log("hier");
+		console.log(pageNo);
 	};
 }
 
@@ -103,5 +104,3 @@ function IndexController($scope, $routeParams, $location, PackageService) {
 	};
 }
 
-function PaginationController($scope, $routeParams) {
-}
