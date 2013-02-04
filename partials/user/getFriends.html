@@ -2,9 +2,7 @@
 	<h2>User.getFriends</h2>
 </div>
 
-<div ng-controller="PaginationController">
-	<ng-include src="'partials/pagination.html'"></ng-include>
-</div>
+<pagination num-pages="data.friends['@attr'].totalPages" current-page="data.friends['@attr'].page"></pagination>
 
 <div>
 	<ul class="thumbnails">

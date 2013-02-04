@@ -76,6 +76,10 @@ function MethodController($scope, $routeParams, LastFm) {
 			return "http://cdn.last.fm/flatness/catalogue/noimage/2/default_user_mega.png";
 		}
 		
+		 $scope.setPage = function (pageNo) {
+			console.log(pageNo);
+		 };
+		
 	};
 }
 
@@ -100,7 +104,4 @@ function IndexController($scope, $routeParams, $location, PackageService) {
 }
 
 function PaginationController($scope, $routeParams) {
-	console.log($scope);
-	console.log("hier");
-	console.log($scope.$parent.data);
 }
