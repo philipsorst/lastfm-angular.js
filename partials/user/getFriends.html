@@ -4,13 +4,11 @@
 
 <pagination num-pages="data.friends['@attr'].totalPages" current-page="data.friends['@attr'].page"></pagination>
 
-<div>
-	<ul class="thumbnails">
-		<li ng-repeat="user in data.friends.user" class="span1">
-			<a ng-href="#/user/getInfo?user={{user.name}}" class="thumbnail">
-				<!-- <image size="medium"></image> -->
-				<img ng-src="{{image(user, 'medium')}}" />
-			</a>
-		</li>
-	</ul>
+<div class="row">
+    <div ng-repeat="user in data.friends.user" class="col-lg-2 col-md-3 col-sm-6">
+        <a ng-href="#/user/getInfo?user={{user.name}}" class="thumbnail">
+            <!-- <image size="medium"></image> -->
+            <img ng-src="{{image(user, 'large')}}" class="img-responsive"/>
+        </a>
+    </div>
 </div>

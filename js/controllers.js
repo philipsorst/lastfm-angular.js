@@ -1,11 +1,11 @@
 'use strict';
 
-/* Controllers */
-
 function TopBarController($scope, $route, $routeParams, PackageService) {
+
 	$scope.packages = Object.keys(PackageService);
 	$scope.params = $routeParams;
 }
+
 
 function SideBarController($scope, $route, $routeParams, PackageService) {
 	
@@ -27,9 +27,12 @@ function SideBarController($scope, $route, $routeParams, PackageService) {
 	};
 }
 
+
 function RouteController($scope, $routeParams) {
+
 	$scope.params = $routeParams;
 }
+
 
 function MethodController($scope, $routeParams, LastFm) {
 	
@@ -79,10 +82,10 @@ function MethodController($scope, $routeParams, LastFm) {
 	};
 	
 	$scope.onSelectPage = function(pageNo) {
-		console.log("hier");
 		console.log(pageNo);
 	};
 }
+
 
 function IndexController($scope, $routeParams, $location, PackageService) {
 	

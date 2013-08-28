@@ -1,18 +1,17 @@
 'use strict';
 
-/* Services */
-
 var services = angular.module('lastfmApp.services', []);
 
 services.factory('LastFm', function($http) {
+
 	var lastfmService = {
 		fetch: function(routeParams) {
 			
 			var lfmParams = {
-					"format": "json",
-					"method": routeParams.pkg + "." + routeParams.mthd,
-					"api_key": account.key
-				};
+                "format": "json",
+                "method": routeParams.pkg + "." + routeParams.mthd,
+                "api_key": account.key
+            };
 			
 			for(var propt in routeParams){
 			    if (propt != "pkg" && propt != "mthd") {
@@ -21,18 +20,21 @@ services.factory('LastFm', function($http) {
 			}
 			
 			var promise = $http.get(
-						'http://ws.audioscrobbler.com/2.0/',
-						{ "params": lfmParams }
-					).then(function(response) {
-						return response.data;
-					});
+                    'http://ws.audioscrobbler.com/2.0/',
+                    { "params": lfmParams }
+                ).then(function(response) {
+                    return response.data;
+                });
 			return promise;
 		}
 	};
+
 	return lastfmService;
 });
 
+
 services.value('PackageService', {
+
     "user": { 
     	"methods": [
     	    {

@@ -1,22 +1,7 @@
 body {
-	padding-top: 60px;
+    padding-top: 60px;
 }
 
-.span1 .thumbnail {
-	height: 50px;
-}
-
-.span1 .thumbnail img {
-	max-height: 50px;
-	max-width: 50px;
-}
-
-.span2 .thumbnail {
-	width: 140px;
-	height: 140px;
-}
-
-.span2 .thumbnail img {
-	max-height: 130px;
-	max-width: 130px;
+.page-header {
+    margin-top: 0px;
 }
