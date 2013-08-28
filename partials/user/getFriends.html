@@ -2,13 +2,15 @@
 	<h2>User.getFriends</h2>
 </div>
 
-<pagination num-pages="data.friends['@attr'].totalPages" current-page="data.friends['@attr'].page"></pagination>
+<pagination num-pages="data.friends['@attr'].totalPages" current-page="data.friends['@attr'].page" set-page="setPage(page)"></pagination>
 
 <div class="row">
     <div ng-repeat="user in data.friends.user" class="col-lg-2 col-md-3 col-sm-6">
-        <a ng-href="#/user/getInfo?user={{user.name}}" class="thumbnail">
-            <!-- <image size="medium"></image> -->
-            <img ng-src="{{image(user, 'large')}}" class="img-responsive"/>
-        </a>
+        <div class="thumbnail">
+            <a ng-href="#/user/getInfo?user={{user.name}}" class="image" aspect-ratio="1">
+                <!-- <image size="medium"></image> -->
+                <img ng-src="{{image(user, 'large')}}" />
+            </a>
+        </div>
     </div>
 </div>

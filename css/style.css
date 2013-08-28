@@ -5,3 +5,18 @@ body {
 .page-header {
     margin-top: 0px;
 }
+
+.thumbnail {
+
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.thumbnail .image {
+    display: block;
+}
+
+.thumbnail .image img {
+    max-width: 100%;
+    max-height: 100%;
+}

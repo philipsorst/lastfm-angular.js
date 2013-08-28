@@ -4,18 +4,28 @@
 
 var directives = angular.module('lastfmApp.directives', []);
 
-directives.directive('image', function() {
-	return {
-		restrict: 'EA',
-		replace: true,
-		template: '<img />',
-		scope: {
-			size: '@'
-		},
-		link: function($scope) {
-			console.log("image link called");
-		}
-	};
+directives.directive('aspectRatio', function($timeout, $window) {
+   return {
+       restrict: 'A',
+       link: function($scope, $elm, $attrs) {
+
+           var setSize = function() {
+               if ($elm.width() > 0) {
+                   $elm.css("height", $elm.width() * $attrs.aspectRatio);
+               }
+           }
+
+           if ($elm.width() > 0) {
+               setSize();
+           } else {
+               $timeout(setSize, 100);
+           }
+
+           $(window).resize(function() {
+               setSize();
+           });
+       }
+   }
 });
 
 /**
@@ -28,7 +38,7 @@ directives.directive('pagination', function() {
 			numPages: '=',
 			currentPage: '=',
 			maxSize: '=',
-			onSelectPage: '&',
+			setPage: '&',
 			nextText: '@',
 			previousText: '@'
 		},
@@ -79,7 +89,7 @@ directives.directive('pagination', function() {
 			$scope.selectPage = function(page) {
 				if ( !$scope.isActive(page) ) {
 					$scope.currentPage = page;
-					$scope.onSelectPage({ page: page });
+					$scope.setPage({ page: page });
 				}
 			};
 

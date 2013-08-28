@@ -34,8 +34,8 @@ function RouteController($scope, $routeParams) {
 }
 
 
-function MethodController($scope, $routeParams, LastFm) {
-	
+function MethodController($scope, $location, $routeParams, LastFm) {
+
 	$scope.params = $routeParams;
 	
 	LastFm.fetch($routeParams).then(function(d) {
@@ -81,8 +81,10 @@ function MethodController($scope, $routeParams, LastFm) {
 		}
 	};
 	
-	$scope.onSelectPage = function(pageNo) {
-		console.log(pageNo);
+	$scope.setPage = function(pageNo) {
+        var search = $location.search();
+        search.page = pageNo;
+        $location.search(search);
 	};
 }
 
